@@ -6,5 +6,37 @@
 **/
 
 body{
-	
+	background: #fff;
+	overflow: hidden;
+}
+#wrap,
+#noise,
+#spot,
+#spot-b{
+	position: absolute; top:0; bottom:0; left:0; right:0; z-index: 0;
+}
+#noise{
+	left:auto; right:auto; width: 100%;
+	background: #fff url(../../resources/images/noise.png);
+	z-index: 1;
+}
+#wrap{
+	left:auto; right:auto; width: 100%;
+	background: transparent url(../../resources/images/shade-lite.png) center center no-repeat;
+	background-size: 100% auto;
+	overflow: hidden;
+	z-index: 1;
+}
+#spot{
+	left:auto; width: 300px;
+	background: url(../../resources/images/spot-m.png) top left repeat-y;
+}
+#spot-t,
+#spot-b{
+	width:auto; height:20px;
+	background: url(../../resources/images/spot-t.png) no-repeat;
+}
+#spot-b{
+	top:auto;
+	background: url(../../resources/images/spot-b.png) no-repeat;
 }

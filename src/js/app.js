@@ -6,7 +6,13 @@
 **/
 
 _.ready(function(){
-	
+
+	_.$('#wrap').on('click',function(){
+		_.$('#noise').moveTo('-300px',0)
+	})	
+	_.$('#spot').on('click',function(){
+		_.$('#noise').moveTo('1px',0);
+	})	
 	
 })
 	
