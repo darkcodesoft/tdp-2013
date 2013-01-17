@@ -1,0 +1,25 @@
+.jx-view{
+	position: absolute; top:0; bottom:0; left:0; right:0; z-index: 1;
+	background: rgba(0,0,0,.3);
+	overflow: hidden;
+}
+.jx-view.horizontal .jx-pane{
+	float: left;	
+}
+.jx-view .jx-view-pager,
+.jx-scroll-pager{
+	position: absolute; top:auto; bottom:40px; left:auto; right:auto; z-index:100;
+	background: #666;
+}
+.jx-pane-wrap{
+	position:absolute;
+}
+.jx-view-pager-btn,
+.jx-scroll-pager-btn{
+	display: inline-block;
+	padding: 10px;
+	margin: 2px;	
+	background: #c00;
+	cursor: pointer;
+	color: #fff;
+}

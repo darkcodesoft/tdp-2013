@@ -1,0 +1,300 @@
+/**
+* JX 1.0.1
+* @Author: Teddy Moussignac
+* @website: http://www.teddyproductions.com
+* (c) Copyright 2013, All Rights Reserved.
+**/
+
+/****** FLOAT STYLES ******/
+*{
+	list-style: none;
+	text-decoration: none;
+	border:none;
+	outline: none;
+	margin:0; padding: 0;
+	
+	touch-callout: none!important;
+	-webkit-touch-callout: none!important;
+	-moz-touch-callout: none!important;
+	-ms-touch-callout: none!important;
+	-o-touch-callout: none!important;
+	
+	tap-highlight-color: transparent!important;
+	-webkit-tap-highlight-color: transparent!important;
+	-moz-tap-highlight-color: transparent!important;
+	-ms-tap-highlight-color: transparent!important;
+	-o-tap-highlight-color: transparent!important;
+	
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+.fx{
+	transition-timing-function: ease;
+	transition-duration: 400ms;
+
+	-webkit-transition-timing-function: ease;
+	-webkit-transition-duration: 400ms;
+	
+	-moz-transition-timing-function: ease;
+	-moz-transition-duration: 400ms;
+	
+	-ms-transition-timing-function: ease;
+	-ms-transition-duration: 400ms;
+	
+	-o-transition-timing-function: ease;
+	-o-transition-duration: 400ms;
+}
+body{
+	position:absolute; top:0; left:0; bottom:0; right:0; z-index: 0;
+	font:14px 'Helvetica Nueu', helvetica, arial, sans-serif;
+	color: #444;
+}
+/** jx-btn **/
+.jx-btn{
+	display: block;
+	display: inline-block;
+	padding:5px 15px;
+	margin-top:10px;
+	border:1px solid #ccc;
+	background: #ccc;
+	color: #fff;
+	text-shadow: 0 1px 2px rgba(0,0,0,.3);
+	font:bold 13px helvetica, arial;
+	text-transform: capitalize;
+	text-align: center;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+	letter-spacing: .5px;
+}
+
+/** OUT **/
+.out{
+	position: fixed; top:0; bottom:0; left:0; right:0; z-index: 0;
+	background: rgba(0,0,0,.7);
+	background: radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,1));
+	background: -webkit-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,1));
+	background: -moz-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,1));
+	background: -ms-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,1));
+	background: -o-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,1));
+	opacity: 0;
+}
+.dialogue{
+	width: 300px;
+	padding:10px;
+	position: absolute; top:50%; left:50%; z-index: 0;
+	margin-left : -150px;
+	background: #fff;
+	color:#666;
+	font-size: 18px;
+	text-align: center;
+	box-shadow: 0px 10px 50px rgba(0,0,0,.8);
+	overflow: hidden;
+}
+.dialogue.wide{
+	width: 450px;
+}
+.dialogue.init{
+	animation: scaleup .2s ease-in-out;
+	-webkit-animation: scaleup .2s ease-in-out;
+	-moz-animation: scaleup .2s ease-in-out;
+	-ms-animation: scaleup .2s ease-in-out;
+	-o-animation: scaleup .2s ease-in-out;
+}
+.out .label{
+	margin-bottom: 10px;
+	text-shadow: 1px -1px 1px rgba(0,0,0,.4);
+}
+.out * .jx-btn{
+	width: 100%;
+	top:auto; bottom:5px; left:10px; right:10px;
+	text-align: center;
+	font-size: 16px;
+	padding: 13px 0;
+}
+.out form{
+	top: 35%;
+}
+.out form input[type=text]{
+	border-radius: 3px;
+	margin: 0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #444;
+	text-shadow: none;
+}
+/** LOGGER **/
+#mr_l_w{
+	position: absolute; top: auto; bottom:1%; left:0; right:0; z-index: 10000000;
+}
+.mr_l{
+	display: block;
+	position: relative; left: 1%;
+	width: 98%;
+	margin-bottom: 10px;
+	background: #fff;
+	border: 1px solid rgba(0,0,0,.23);
+	transform: translate(0, 200%);
+	-webkit-transform: translate3d(0, 200%, 0);
+	-moz-transform: translate(0, 200%);
+	-ms-transform: translate(0, 200%);
+	-o-transform: translate(0, 200%);
+}
+.mr_l.active{
+	transform: translate(0,0);
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate(0,0);
+	-ms-transform: translate(0,0);
+	-o-transform: translate(0,0);
+}
+.mr_l_body{
+	position: relative;
+	padding:10px 20px;
+	width: 90%;
+	font:14px 'Helvetica Neue', helvetica, arial, sans-serif;
+	color: #444;
+}
+.mr_l_c{
+	display: block;
+	width: 30px; height: 30px;
+	position: absolute; top:3px; right:3px; left:auto; z-index: 10;
+	background: #999 url(../../resources/images/ico.png) -38px -182px no-repeat;
+	background-color: rgba(0,0,0,.5); 
+	cursor: pointer;
+	border-radius: 100px;
+}
+.mr_l_c:hover,
+.mr_l_c:active{
+	background-color: rgba(0,0,0,.8);
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+}
+.jx-img{
+	display: inline-block;
+	position: relative;
+}
+.jx-img > img{
+	position: relative; z-index: 0;
+	max-width: 100%;
+	max-height: 100%;
+}
+.jx-img .map-w{
+	position: absolute; left:0; right:0; top:0; bottom: 0; z-index: 1;
+}
+.jx-img .map-w .dom-item{
+	position: absolute;
+	z-index: 2;
+	cursor: pointer;
+}
+
+/** util classes **/
+.touch-scroll{
+	overflow: auto!important;
+	overflow-scrolling: touch!important;
+	-webkit-overflow-scrolling: touch!important;
+	-moz-overflow-scrolling: touch!important;
+	-ms-overflow-scrolling: touch!important;
+	-o-overflow-scrolling: touch!important;
+}
+.jx-scroll-pager{
+	position: absolute; top:auto; bottom:40px; left:auto; right:auto; z-index:100;
+	background: #666;
+}
+.jx-scroll-pager-btn{
+	display: inline-block;
+	padding: 10px;
+	margin: 2px;	
+	background: #c00;
+	cursor: pointer;
+	color: #fff;
+}
+.jx-popup{
+	border:10px solid #fff;
+	background: #fff;
+	box-shadow: 0 0 50px rgba(0,0,0,.8)
+}
+.jx-drag{
+/* 	cursor: move; */
+}
+.jx-scroll{
+	position: relative;
+	width:auto;
+	height:auto;
+	overflow: hidden;
+}
+.jx-scroll-bar{
+	width:8px;
+	position:absolute; left : auto; top:4px; bottom:4px; right:4px; z-index: 100;
+	background: transparent;
+	overflow: hidden;
+	border-radius: 100px;
+}
+.jx-scroll-bar.hide{
+	display: none;
+}
+.jx-scroll-bar:hover{
+	width: 16px;
+	background: rgba(0,0,0,.3)
+}
+.jx-scroll-handle{
+	position: absolute; left:0; right:0; top:0; bottom: auto;
+	background: #078;
+	border-radius: 100px;
+}
+.label,
+.lbl{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+/**
+SCALEUP
+**/
+@keyframes scaleup{
+	0%{
+		transform: scale(.9);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+@-webkit-keyframes scaleup{
+	0%{
+		-webkit-transform: scale3d(.9,.9,1);
+	}
+	100%{
+		-webkit-transform: scale3d(1,1,1);
+	}
+}
+@-moz-keyframes scaleup{
+	0%{
+		-moz-transform: scale(.9);
+	}
+	100%{
+		-moz-transform: scale(1);
+	}
+}
+@-ms-keyframes scaleup{
+	0%{
+		-ms-transform: scale(.9);
+	}
+	100%{
+		-ms-transform: scale(1);
+	}
+}
+@-o-keyframes scaleup{
+	0%{
+		-o-transform: scale(.9);
+	}
+	100%{
+		-o-transform: scale(1);
+	}
+}
