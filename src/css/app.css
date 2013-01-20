@@ -159,7 +159,7 @@ body{
 **/
 #nav{
 	width: 460px; height:62px;
-	position: absolute; bottom :4px; left : 50%; z-index: 100;
+	position: absolute; bottom :8px; left : 50%; z-index: 100;
 	margin-left: -230px;
 }
 #nav-bar{
@@ -171,15 +171,13 @@ body{
 }
 #inner-nav-bar{
 	width: 100px; height: 2px;
-	position: relative;
-	left:-44px;
+	position: relative; left:-40px;
 	background: url(../../resources/images/sprite-3.png) -412px -9px no-repeat;
 }
 
 #nav-list{
 	height: 10px; width: 400px;
-/* 	background: #0c0; */
-	position: absolute; left:30px; bottom:4px;
+	position: absolute; left:30px; bottom:4px; z-index: 2;
 }
 #nav-list .disc{
 	display: block;
@@ -265,6 +263,18 @@ body{
 	position: absolute; left:50%; top:50%; z-index: 100;
 	margin-left:-9px; margin-top:-9px;
 	background: url(../../resources/images/sprite-3.png) -696px 0px no-repeat;
+}
+
+/**
+* Panes
+**/
+#panes{
+	position: absolute; top:0; bottom:0; left:0; z-index:10;
+}
+.pane{
+	position: absolute; left:auto; top:0;
+	padding-top:28px;
+	padding-left:240px;
 }
 
 
