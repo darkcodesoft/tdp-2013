@@ -121,6 +121,7 @@ body{
 	margin-left:1px; margin-top:-10px;
 	float: right;
 	border-radius: 2px;
+	cursor: pointer;
 }
 #spot-init:hover,
 #sett-init:hover,
