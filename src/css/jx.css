@@ -47,6 +47,13 @@
 	-o-transition-timing-function: ease;
 	-o-transition-duration: 400ms;
 }
+.no-fx{
+	transition-duration: 0ms;
+	-webkit-transition-duration: 0ms;
+	-moz-transition-duration: 0ms;
+	-ms-transition-duration: 0ms;
+	-o-transition-duration: 0ms;
+}
 body{
 	position:absolute; top:0; left:0; bottom:0; right:0; z-index: 0;
 	font:14px 'Helvetica Nueu', helvetica, arial, sans-serif;

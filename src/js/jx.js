@@ -1411,7 +1411,16 @@
 			
 			position : function(o){
 				var t = o || this, cl = 0, ct = 0;
-				if (t.offsetParent) {
+				if(t.css('position')){
+					cl = t.css('left');
+					ct = t.css('top');
+				}
+				return { left : cl, top : ct }
+			},
+			
+			offset : function(o){
+				var t = o || this, cl = 0, ct = 0;
+				if (t.offsetParent){
 					do{
 						cl += t.offsetLeft;
 						ct += t.offsetTop;

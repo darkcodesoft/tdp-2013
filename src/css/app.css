@@ -5,38 +5,268 @@
 * (c) Copyright 2013, All Rights Reserved.
 **/
 
+/**
+* Import Files & Fonts
+**/
+@import url(http://fonts.googleapis.com/css?family=Oswald:700,300,400);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@font-face {
+    font-family: 'futura-med-cond';
+    src: url('/resources/fonts/futuramc-webfont.eot');
+    src: url('/resources/fonts/futuramc-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/resources/fonts/futuramc-webfont.woff') format('woff'),
+         url('/resources/fonts/futuramc-webfont.ttf') format('truetype'),
+         url('/resources/fonts/futuramc-webfont.svg#webfontregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/**
+* General
+**/
 body{
 	background: #fff;
 	overflow: hidden;
+	font-family: 'Open Sans', 'Helvetica Nueu', helvetica, arial sans-serif;
 }
+#in-wrap,
 #wrap,
-#noise,
 #spot,
-#spot-b{
-	position: absolute; top:0; bottom:0; left:0; right:0; z-index: 0;
-}
-#noise{
-	left:auto; right:auto; width: 100%;
-	background: #fff url(../../resources/images/noise.png);
-	z-index: 1;
+#app-screen{
+	position: absolute; top:0; bottom:0; left:0; right:0; z-index: 1;
 }
 #wrap{
 	left:auto; right:auto; width: 100%;
+	background: #fff url(../../resources/images/noise.png);
+	z-index: 2;
+}
+#in-wrap{
+	left:auto; right:auto; width: 100%;
 	background: transparent url(../../resources/images/shade-lite.png) center center no-repeat;
-	background-size: 100% auto;
+	background-size: 95% auto;
 	overflow: hidden;
-	z-index: 1;
+	z-index: 2;
+}
+.msie.ie8 #in-wrap{
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='../../resources/images/shade-lite.png',sizingMethod='scale');
 }
 #spot{
 	left:auto; width: 300px;
+	color: #ddd;
+	text-shadow: 0 1px 3px rgba(0,0,0,.3);
+	font-size: 14px;
 	background: url(../../resources/images/spot-m.png) top left repeat-y;
 }
-#spot-t,
-#spot-b{
-	width:auto; height:20px;
-	background: url(../../resources/images/spot-t.png) no-repeat;
+#spot-sett-panes{
+	width: 600px;
+	position: absolute;left:0; top:0; bottom:100px;
 }
-#spot-b{
-	top:auto;
-	background: url(../../resources/images/spot-b.png) no-repeat;
+#spot-pane,
+#sett-pane{
+	width: 300px;
+	position: absolute; top:0; bottom:0; left : 0; z-index: 1;
+	padding: 24px 16px;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
+#sett-pane{
+	left:300px;
+}
+#app-screen{
+	top: 64px; right: 300px; z-index: 0;
+}
+#app-screen.on{
+	z-index: 1000;
+}
+.ico{
+	display: block;
+	width:24px; height: 24px;
+	background: url(../../resources/images/sprite-1.png) 0px 0px no-repeat;
+	border-radius: 2px;
+}
+.s-google{
+	background-position: -50px 0;
+}
+.s-facebook{
+	background-position: -25px 0;
+}
+
+/**
+* Header & Footer
+**/
+#header,
+#footer{
+	position: absolute; top : 24px; bottom:auto; left : 20px; right:20px; z-index: 100;
+	height:1px;
+	/* background: #0c0; */
+}
+#footer{
+	top:auto; bottom:20px;
+}
+#logo{
+	width:201px; height: 24px;
+	position: absolute; left:0; top:0;
+	background:url(../../resources/images/sprite-2.png) -7px -683px no-repeat;
+}
+#logo .logo{
+	position: absolute; left:0; right:0; top:0; bottom: 0;
+	color: #fff;
+	font-size: 0px;
+}
+#spot-init,
+#sett-init{
+	display: block;
+	width : 40px; height: 40px;
+	margin-left:1px; margin-top:-10px;
+	float: right;
+	border-radius: 2px;
+}
+#spot-init:hover,
+#sett-init:hover,
+#spot-init.on,
+#sett-init.on{
+	background: #008C69;
+}
+#spot-init span,
+#sett-init span{
+	display: block;
+	width: 24px; height: 24px;
+	margin: 8px;
+	background: url(../../resources/images/sprite-1.png) -96px -31px no-repeat;
+}
+#sett-init span{
+	background-position: -33px -26px;	
+}
+#spot-init:hover span,
+#spot-init.on span{
+	background-position: -66px -31px;
+}
+#sett-init:hover span,
+#sett-init.on span{
+	background-position: -1px -26px;
+}
+#share-list{
+	position: absolute; bottom:0; right:0;
+}
+#share-list .ico{
+	float: right;
+	margin-left: 4px;
+}
+
+/**
+* Nav
+**/
+#nav{
+	width: 460px; height:62px;
+	position: absolute; bottom :4px; left : 50%; z-index: 100;
+	margin-left: -230px;
+}
+#nav-bar{
+	width: 400px; height: 2px;
+	position: absolute; left:50%; bottom:8px; z-index: 1;
+	margin-left:-200px;
+	background: #000;
+	overflow: hidden;
+}
+#inner-nav-bar{
+	width: 100px; height: 2px;
+	position: relative;
+	left:-44px;
+	background: url(../../resources/images/sprite-3.png) -412px -9px no-repeat;
+}
+
+#nav-list{
+	height: 10px; width: 400px;
+/* 	background: #0c0; */
+	position: absolute; left:30px; bottom:4px;
+}
+#nav-list .disc{
+	display: block;
+	width:16px; height: 16px;
+	background: url(../../resources/images/sprite-1.png) -23px -535px no-repeat;
+}
+#nav-list .label{
+	display: block;
+	width:31px; height: 31px;
+	position: absolute; left:0; bottom:12px; z-index: 2;
+	background: url(../../resources/images/sprite-2.png) -75px -773px no-repeat;	
+}
+#index-btn,
+#work-btn,
+#notes-btn,
+#about-btn,
+#contact-btn{
+	width:10px; height: 10px;
+	position: absolute; left:0; bottom:4px; z-index: 2;
+	cursor: pointer;
+}
+#index-btn .label{
+	width:31px; height: 31px;		
+}
+#index-btn.on .label,
+#index-btn:hover .label{
+	background-position: -75px -816px;
+}
+#work-btn{
+	left:100px;
+}
+#work-btn .label{
+	width:34px; height: 32px;
+	background-position: -111px -773px;
+}
+#work-btn.on .label,
+#work-btn:hover .label{
+	background-position: -111px -816px;
+}
+#notes-btn{
+	left:200px;
+}
+#notes-btn .label{
+	width:33px; height: 33px;
+	background-position: 0px -773px;
+}
+#notes-btn.on .label,
+#notes-btn:hover .label{
+	background-position: 0px -816px;
+}
+#about-btn{
+	left:300px;
+}
+#about-btn .label{
+	width:34px; height: 37px;
+	background-position: -37px -773px;
+}
+#about-btn.on .label,
+#about-btn:hover .label{
+	background-position: -37px -816px;
+}
+#contact-btn{
+	left:400px;
+}
+#contact-btn .label{
+	width:45px; height:47px;
+	background-position: -149px -773px;
+}
+#contact-btn.on .label,
+#contact-btn:hover .label{
+	background-position: -149px -822px;
+}
+#sel-disc-wrap{
+	width: 38px; height: 38px;
+	position: absolute; left:20px; bottom:-10px; z-index: 100;
+}
+#sel-disc-shade{
+	width: 38px; height: 38px;
+	background: url(../../resources/images/sprite-3.png) -10px -10px no-repeat;
+}
+#sel-disc{
+	width:18px; height: 18px;
+	position: absolute; left:50%; top:50%; z-index: 100;
+	margin-left:-9px; margin-top:-9px;
+	background: url(../../resources/images/sprite-3.png) -696px 0px no-repeat;
+}
+
+
+
+
